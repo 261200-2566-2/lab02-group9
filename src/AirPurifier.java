@@ -12,21 +12,24 @@ public class AirPurifier {
      // OFF/Low/Med/High
     boolean power;
     double PM;
-    AirPurifier(String brand,String model,String serial){
+    AirPurifier(String brand,String serial,String model,boolean power,String fanMode,int fanSpeed,double PM){
         this.brand = brand;
         this.model = model;
         this.serial_number = serial;
-        fanMode = "OFF";
+        this.power = power;
+        this.fanMode = fanMode;
+        this.fanSpeed = fanSpeed;
+        this.PM = PM;
     }
     //constructor with brand , model and serial number
-    AirPurifier(String model,String serial){
-        this("HITACHI",model,serial);
-        //set brand default
-    }
-    AirPurifier(String serial){
-        this("X1",serial);
-        //set model default
-    }
+//    AirPurifier(String model,String serial){
+//        this("HITACHI",model,serial);
+//        //set brand default
+//    }
+//    AirPurifier(String serial){
+//        this("X1",serial);
+//        //set model default
+//    }
     //constructor with no model
     public void PrintDisplay(){
         System.out.println("---------------------------------------");

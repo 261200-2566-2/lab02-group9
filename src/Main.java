@@ -1,8 +1,7 @@
 
     public class Main {
     public static void main(String[] args) {
-        AirPurifier h1 = new AirPurifier("12233");
-        AirPurifier x1 = new AirPurifier("Xiaomi","PRO","2347");
+        AirPurifier x1 = new AirPurifier("Xiaomi","PRO","2347",true,"Low",800,5.55);
         x1.PrintDisplay();
     }
 }
