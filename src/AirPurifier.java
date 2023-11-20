@@ -31,6 +31,7 @@ public class AirPurifier {
 //        //set model default
 //    }
     //constructor with no model
+
     public void PrintDisplay(){
         System.out.println("---------------------------------------");
         System.out.println("Brand: "+brand);
