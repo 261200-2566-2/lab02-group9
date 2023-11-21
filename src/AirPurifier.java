@@ -41,6 +41,7 @@ public class AirPurifier {
                 }else if(brands[i].name.equals(brand)){
                     brands[i].count += 1;
                     break;
+
                 }
             }
     }

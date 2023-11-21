@@ -8,5 +8,6 @@
         AirPurifier t1 = new AirPurifier("TOCHIBA","T2","t467");
         AirPurifier t2 = new AirPurifier("TOCHIBA","T2","t624");
         AirPurifier.PrintAllBrands();
+
     }
 }

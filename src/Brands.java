@@ -4,5 +4,6 @@ public class Brands {
     Brands(String name){
         this.name = name;
         count++;
+
     }
 }
