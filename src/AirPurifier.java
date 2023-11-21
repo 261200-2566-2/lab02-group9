@@ -12,22 +12,50 @@ public class AirPurifier {
      // OFF/Low/Med/High
     boolean power;
     double PM;
+    static Brands [] brands = new Brands[20];
+    static int count;
     AirPurifier(String brand,String model,String serial){
         this.brand = brand;
         this.model = model;
         this.serial_number = serial;
         fanMode = "OFF";
+        count++; // to count quantity of Air Purifier
+        calculateBrandsCount(brand);
     }
     //constructor with brand , model and serial number
     AirPurifier(String model,String serial){
-        this("HITACHI",model,serial);
-        //set brand default
+        this("Hitachi",model,serial);
+        //set brand default with Hitachi
     }
     AirPurifier(String serial){
-        this("X1",serial);
-        //set model default
+        this("H1",serial);
+        //set model default with Hitachi model
     }
     //constructor with no model
+
+    public static void calculateBrandsCount(String brand){
+            for(int i = 0;i<count;i++){
+                if(brands[i] == null){
+                    brands[i] = new Brands(brand);
+                    break;
+                }else if(brands[i].name.equals(brand)){
+                    brands[i].count += 1;
+                    break;
+                }
+            }
+    }
+
+    public static void PrintAllBrands(){
+        int i = 0;
+        System.out.println("All Air Purifier quantity: " + count);
+        System.out.println("---------------------------------------");
+        System.out.println("Brand detail");
+        System.out.println("---------------------------------------");
+        while(brands[i] != null){
+            System.out.println(brands[i].name + ": " + brands[i].count);
+            i++;
+        }
+    }
     public void PrintDisplay(){
         System.out.println("---------------------------------------");
         System.out.println("Brand: "+brand);
@@ -51,7 +79,7 @@ public class AirPurifier {
             fanMode = "Low";
             fanSpeed = 800;
         }else if(fanLevel == 2){
-            fanMode = "Med";
+            fanMode = "Medium";
             fanSpeed = 1000;
         }else if(fanLevel == 3){
             fanMode = "High";
