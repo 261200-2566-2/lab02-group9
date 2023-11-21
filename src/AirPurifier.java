@@ -14,23 +14,34 @@ public class AirPurifier {
     double PM;
     static Brands [] brands = new Brands[20];
     static int count;
-    AirPurifier(String brand,String model,String serial){
+//    AirPurifier(String brand,String model,String serial){
+//        this.brand = brand;
+//        this.model = model;
+//        this.serial_number = serial;
+//        fanMode = "OFF";
+//        count++; // to count quantity of Air Purifier
+//        calculateBrandsCount(brand);
+//    }
+    AirPurifier(String brand,String model,String serial ,boolean power,String fanMode,int fanSpeed,double PM) {
         this.brand = brand;
         this.model = model;
         this.serial_number = serial;
-        fanMode = "OFF";
+        this.power = power;
+        this.fanMode = fanMode;
+        this.fanSpeed = fanSpeed;
+        this.PM = PM;
         count++; // to count quantity of Air Purifier
         calculateBrandsCount(brand);
     }
     //constructor with brand , model and serial number
-    AirPurifier(String model,String serial){
-        this("Hitachi",model,serial);
-        //set brand default with Hitachi
-    }
-    AirPurifier(String serial){
-        this("H1",serial);
-        //set model default with Hitachi model
-    }
+//    AirPurifier(String model,String serial){
+//        this("Hitachi",model,serial);
+//        //set brand default with Hitachi
+//    }
+//    AirPurifier(String serial){
+//        this("H1",serial);
+//        //set model default with Hitachi model
+//    }
     //constructor with no model
 
     public static void calculateBrandsCount(String brand){
@@ -68,6 +79,7 @@ public class AirPurifier {
         System.out.println("Fan Mode: "+ fanMode);
         System.out.println("Fan Speed(RPM): "+fanSpeed);
         System.out.println("PM: "+PM);
+        ChangePm(PM);
         System.out.println("---------------------------------------");
     }
     public void ChangeFanLevel(int fs){
@@ -91,6 +103,18 @@ public class AirPurifier {
     }
     public void ChangePm(double pm){
         PM = pm;
+        if(PM >= 201){
+            ChangeFanLevel(3);
+            System.out.println("The PM value is at a high level !! , Change fan level mode to high.");
+        }
+        else if(PM < 200 && PM >=101){
+            ChangeFanLevel(2);
+            System.out.println("The PM value is at a medium level , Change fan level mode to medium.");
+        }
+        else if(PM < 100){
+            ChangeFanLevel(1);
+            System.out.println("The PM value is at a low level , Change fan level mode to low.");
+        }
     }
     public void TurnOn(boolean pw){
         power = pw;
