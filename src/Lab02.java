@@ -17,7 +17,7 @@ public class Lab02 {
 
         //test2 for view display when it's turn off
         //x2.TurnOn(false);
-        //x2.ChangeFanLevel(0);
+        //x2.ChangeFanLevel(0); //another way to turn off
 
         //test3 of to check brand name in index and count of that brand
         //System.out.println(AirPurifier.brands[0].name);
